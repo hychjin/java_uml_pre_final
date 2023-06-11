@@ -4,7 +4,7 @@ import lab.LManager;
 import member.MemberManager;
 import menu.MainMenu;
 
-public class Qz03 {
+public class mainCtrl {
 	public static void main(String[] args) {
 		int sel;
 		MainMenu mm = new MainMenu();

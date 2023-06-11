@@ -18,7 +18,7 @@ public class MemberManager {
 		mList[index++] = new Student("Student", index,	"KimAD",	lm.findById(3),	"Medical");
 		mList[index++] = new Student("Student", index,	"ChoiSJ",	lm.findById(4),	"Physic");
 		mList[index++] = new Student("Student", index,	"KimKY",	lm.findById(2),	"Mechatronic");
-		mList[index++] = new Researcher("Researcher",index, "FUCKIN", lm.findById(2), "TUKOREA");
+		mList[index++] = new Researcher("Researcher",index, "NJY", lm.findById(2), "TUKOREA");
 	}
 	public void showAll() {
 		for(int i=0; i<index; i++) {
@@ -44,8 +44,8 @@ public class MemberManager {
 		int lid;
 		System.out.println("자동생성된 ID : "+(index+1));
 		System.out.print("NAME : "); 				name = scan.next();
-		System.out.print("LAB (0 FOR NO LAB) : "); 			
-		lm.showAll();								lid = scan.nextInt();
+		lm.showAll();
+		System.out.print("LAB (0 FOR NO LAB) : "); 	lid = scan.nextInt();
 		System.out.print("MAJOR : "); 				major = scan.next();
 		if(lid != 0) {
 			Lab lab = lm.findById(lid);
@@ -62,8 +62,8 @@ public class MemberManager {
 		int lid;
 		System.out.println("자동생성된 ID : "+(index+1));
 		System.out.print("NAME : "); 				name = scan.next();
-		System.out.print("LAB (0 FOR NO LAB) : "); 			
-		lm.showAll();								lid = scan.nextInt();
+		lm.showAll();
+		System.out.print("LAB (0 FOR NO LAB) : "); 	lid = scan.nextInt();
 		System.out.print("ORGANIZATION : "); 		org = scan.next();
 		if(lid != 0) {
 			Lab lab = lm.findById(lid);
@@ -89,6 +89,22 @@ public class MemberManager {
 		}
 		if(a==2) {
 			System.out.println("NO SUCH STUDENT");
+		}
+	}
+	public void searchResearcherByName() {
+		String name;
+		int a=0;
+		System.out.print("NAME : "); name = scan.next();
+		for(int i=0;i<index;i++) {
+			if(mList[i].name.equals(name)) {
+				mList[i].showData();
+				a=1;
+				break;
+			}
+			else a=2;
+		}
+		if(a==2) {
+			System.out.println("NO SUCH Researcher");
 		}
 	}
 	public void showByLab(LManager lm) {
