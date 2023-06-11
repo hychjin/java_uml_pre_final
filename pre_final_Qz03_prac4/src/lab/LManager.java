@@ -1,4 +1,4 @@
-package pre_final_Qz03_prac4;
+package lab;
 import java.util.Scanner;
 
 public class LManager {

@@ -1,4 +1,8 @@
-package pre_final_Qz03_prac4;
+package mainCtrl;
+
+import lab.LManager;
+import member.MemberManager;
+import menu.MainMenu;
 
 public class Qz03 {
 	public static void main(String[] args) {

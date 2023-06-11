@@ -1,4 +1,6 @@
-package pre_final_Qz03_prac4;
+package member;
+
+import lab.Lab;
 
 public class Member {
 	int id;

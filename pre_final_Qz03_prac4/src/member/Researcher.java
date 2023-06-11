@@ -1,4 +1,5 @@
-package pre_final_Qz03_prac4;
+package member;
+import lab.Lab;
 
 public class Researcher extends Member{
 	int id;
@@ -13,9 +14,9 @@ public class Researcher extends Member{
 	public String getOrg() {return org;}
 	public String getIden() {return iden;}
 	public void showData() {
-		System.out.println(getId()+"\t"+getName()+"\t"+getLab().name+"\t"+getOrg());
+		System.out.println(getId()+"\t"+getName()+"\t"+getLab().getName()+"\t"+getOrg());
 	}
 	public void showIden() {
-		System.out.println(getIden()+"\t"+getId()+"\t"+getName()+"\t"+getLab().name+"\t"+getOrg());
+		System.out.println(getIden()+"\t"+getId()+"\t"+getName()+"\t"+getLab().getName()+"\t"+getOrg());
 	}
 }

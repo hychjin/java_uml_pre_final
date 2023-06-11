@@ -1,4 +1,4 @@
-package pre_final_Qz03_prac4;
+package menu;
 import java.util.Scanner;
 
 public class MainMenu {

@@ -1,5 +1,8 @@
-package pre_final_Qz03_prac4;
+package member;
 import java.util.Scanner;
+
+import lab.LManager;
+import lab.Lab;
 
 public class MemberManager {
 	Scanner scan;
