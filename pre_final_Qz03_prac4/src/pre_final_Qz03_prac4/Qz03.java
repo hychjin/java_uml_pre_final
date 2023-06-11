@@ -5,7 +5,7 @@ public class Qz03 {
 		int sel;
 		MainMenu mm = new MainMenu();
 		LManager lm = new LManager(10);	lm.ini();
-		SManager sm = new SManager(50);	sm.ini(lm);
+		MemberManager sm = new MemberManager(50);	sm.ini(lm);
 		while(true) {
 			switch(sel = mm.issue()) {
 			case 1:

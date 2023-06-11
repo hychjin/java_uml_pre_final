@@ -1,38 +1,38 @@
 package pre_final_Qz03_prac4;
 import java.util.Scanner;
 
-public class SManager {
+public class MemberManager {
 	Scanner scan;
 	int index=0;
-	Member sarr[];
+	Member mList[];
 	
-	public SManager(int n) {
-		sarr = new Member[n];
+	public MemberManager(int n) {
+		mList = new Member[n];
 		scan = new Scanner(System.in);
 	}
 	public void ini(LManager lm) {
-		sarr[index++] = new Student("Student", index,	"JinHC",	lm.findById(1),	"Computer Science");
-		sarr[index++] = new Student("Student", index,	"KimAD",	lm.findById(3),	"Medical");
-		sarr[index++] = new Student("Student", index,	"ChoiSJ",	lm.findById(4),	"Physic");
-		sarr[index++] = new Student("Student", index,	"KimKY",	lm.findById(2),	"Mechatronic");
-		sarr[index++] = new Researcher("Researcher",index, "FUCKIN", lm.findById(2), "TUKOREA");
+		mList[index++] = new Student("Student", index,	"JinHC",	lm.findById(1),	"Computer Science");
+		mList[index++] = new Student("Student", index,	"KimAD",	lm.findById(3),	"Medical");
+		mList[index++] = new Student("Student", index,	"ChoiSJ",	lm.findById(4),	"Physic");
+		mList[index++] = new Student("Student", index,	"KimKY",	lm.findById(2),	"Mechatronic");
+		mList[index++] = new Researcher("Researcher",index, "FUCKIN", lm.findById(2), "TUKOREA");
 	}
 	public void showAll() {
 		for(int i=0; i<index; i++) {
-			sarr[i].showData();
+			mList[i].showData();
 		}
 	}
 	public void showResearcher() {
 		for(int i=0; i<index; i++) {
-			if(sarr[i].iden.equals("Researcher")) {
-				sarr[i].showData();
+			if(mList[i].iden.equals("Researcher")) {
+				mList[i].showData();
 			}
 		}
 	}
 	public void showStudent() {
 		for(int i=0; i<index; i++) {
-			if(sarr[i].iden.equals("Student")) {
-				sarr[i].showData();
+			if(mList[i].iden.equals("Student")) {
+				mList[i].showData();
 			}
 		}
 	}
@@ -47,12 +47,12 @@ public class SManager {
 		if(lid != 0) {
 			Lab lab = lm.findById(lid);
 			if(lab != null) {
-				sarr[index++] = new Student("Student", index, name, lab, major);
+				mList[index++] = new Student("Student", index, name, lab, major);
 				return;
 			}
 			System.out.println("WRONG LAB ID, CONSIDER YOU DO NOT BELONG TO THE LAB");
 		}
-		sarr[index++] = new Student("Student", index, name, null, major);
+		mList[index++] = new Student("Student", index, name, null, major);
 	}
 	public void addResearcher(LManager lm) {
 		String name, org;
@@ -65,20 +65,20 @@ public class SManager {
 		if(lid != 0) {
 			Lab lab = lm.findById(lid);
 			if(lab != null) {
-				sarr[index++] = new Researcher("Researcher", index, name, lab, org);
+				mList[index++] = new Researcher("Researcher", index, name, lab, org);
 				return;
 			}
 			System.out.println("WRONG LAB ID, CONSIDER YOU DO NOT BELONG TO THE LAB");
 		}
-		sarr[index++] = new Researcher("Researcher", index, name, null, org);
+		mList[index++] = new Researcher("Researcher", index, name, null, org);
 	}
 	public void searchMemberByName() {
 		String name;
 		int a=0;
 		System.out.print("NAME : "); name = scan.next();
 		for(int i=0;i<index;i++) {
-			if(sarr[i].name.equals(name)) {
-				sarr[i].showData();
+			if(mList[i].name.equals(name)) {
+				mList[i].showData();
 				a=1;
 				break;
 			}
@@ -94,8 +94,8 @@ public class SManager {
 		lm.showAll();
 		System.out.print("LAB ID : ");	lid = scan.nextInt();
 		for(int i=0;i<index;i++) {
-			if(sarr[i].lab.equals(lm.findById(lid))) {
-				sarr[i].showData();
+			if(mList[i].lab.equals(lm.findById(lid))) {
+				mList[i].showData();
 				a=1;
 			}
 		}
