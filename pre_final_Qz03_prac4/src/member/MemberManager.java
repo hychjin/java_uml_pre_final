@@ -1,6 +1,6 @@
 package member;
 import java.util.Scanner;
-
+import show.ShowData;
 import lab.LManager;
 import lab.Lab;
 
@@ -8,10 +8,12 @@ public class MemberManager {
 	Scanner scan;
 	int index=0;
 	Member mList[];
-	
+    private ShowData showData;
+    
 	public MemberManager(int n) {
 		mList = new Member[n];
 		scan = new Scanner(System.in);
+        showData = new ShowData();
 	}
 	public void ini(LManager lm) {
 		mList[index++] = new Student("Student", index,	"JinHC",	lm.findById(1),	"Computer Science");
@@ -19,25 +21,36 @@ public class MemberManager {
 		mList[index++] = new Student("Student", index,	"ChoiSJ",	lm.findById(4),	"Physic");
 		mList[index++] = new Student("Student", index,	"KimKY",	lm.findById(2),	"Mechatronic");
 		mList[index++] = new Researcher("Researcher",index, "NJY", lm.findById(2), "TUKOREA");
+		mList[index++] = new Student("Student", index,	"JKY",	lm.findById(2),	"Mechatronic");
 	}
 	public void showAll() {
-		for(int i=0; i<index; i++) {
-			mList[i].showData();
-		}
-	}
+		System.out.println("-------------------------------------------");
+        for (int i = 0; i < index; i++) {
+            if (mList[i].iden.equals("Student")) {
+                showData.showStudent((Student) mList[i]);
+            } else if (mList[i].iden.equals("Researcher")) {
+                showData.showResearcher((Researcher) mList[i]);
+            }
+        }
+		System.out.println("-------------------------------------------");
+    }
 	public void showResearcher() {
+		System.out.println("-------------------------------------------");
 		for(int i=0; i<index; i++) {
 			if(mList[i].iden.equals("Researcher")) {
 				mList[i].showData();
 			}
 		}
+		System.out.println("-------------------------------------------");
 	}
 	public void showStudent() {
+		System.out.println("-------------------------------------------");
 		for(int i=0; i<index; i++) {
 			if(mList[i].iden.equals("Student")) {
 				mList[i].showData();
 			}
 		}
+		System.out.println("-------------------------------------------");
 	}
 	public void addStudent(LManager lm) {
 		String name, major;
@@ -112,12 +125,14 @@ public class MemberManager {
 		int a=0;
 		lm.showAll();
 		System.out.print("LAB ID : ");	lid = scan.nextInt();
+		System.out.println("-------------------------------------------");
 		for(int i=0;i<index;i++) {
 			if(mList[i].lab.equals(lm.findById(lid))) {
 				mList[i].showData();
 				a=1;
 			}
 		}
+		System.out.println("-------------------------------------------");
 		if(a!=1) System.out.println("NO MEMBER EXIST");
 	}
 }

@@ -21,7 +21,9 @@ public class LManager {
 			if(larr[i].id==n) {
 				return larr[i];
 			}
-		}return null;
+		}
+		
+		return null;
 	}
 	public void sortById() {
 		for(int i=0; i<index; i++) {
@@ -35,9 +37,11 @@ public class LManager {
 		}
 	}
 	public void showAll() {
+		System.out.println("------------------");
 		for(int i = 0; i < index; i++) {
 			larr[i].showData();
 		}
+		System.out.println("------------------");
 	}
 	public void addLab() {
 		String name;
